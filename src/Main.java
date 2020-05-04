@@ -23,9 +23,9 @@ public class Main {
 
         System.out.println("Скалярное произведение векторов = " + v2.findScalarProductOfVectors(v1));
 
-        System.out.println("Векторное произведение векторов = " + Vector.findVectorProductOfVectors(v1, v2));
+        System.out.println("Векторное произведение векторов = " + v1.findVectorProductOfVectors(v2));
 
-        System.out.println("Косинус угла между векторами = " + Vector.findCosOfAngleBetweenVectors(v1, v2));
+        System.out.println("Косинус угла между векторами = " + v1.findCosOfAngleBetweenVectors(v2));
 
         System.out.println("Сумма векторов = " + v2.findSumOfVectors(v1));
 

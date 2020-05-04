@@ -48,13 +48,15 @@ public class Vector {
         return ((x2 - x1) * (v2.getX2() - v2.getX1()) + (y2 - y1) * (v2.getY2() - v2.getY1()) + (z2 - z1) * (v2.getZ2() - v2.getZ1()));
     }
 
-    public static double findVectorProductOfVectors(Vector v2, Vector v1) { //найти векторное произведение векторов
-        double sin = Math.sin(Math.acos(findCosOfAngleBetweenVectors(v2, v1)));
-        return sin * v1.findLengthOfVector() * v2.findLengthOfVector();
+    public double findCosOfAngleBetweenVectors(Vector v2) { //найти косинус угла между векторами
+        Vector v1 = new Vector(x1, x2, y1, y2, z1, z2);
+        return v1.findScalarProductOfVectors(v2) / (v1.findLengthOfVector() * v2.findLengthOfVector());
     }
 
-    public static double findCosOfAngleBetweenVectors(Vector v2, Vector v1) { //найти косинус угла между векторами
-        return v1.findScalarProductOfVectors(v2) / (v1.findLengthOfVector() * v2.findLengthOfVector());
+    public double findVectorProductOfVectors(Vector v2) { //найти векторное произведение векторов
+        Vector v1 = new Vector(x1, x2, y1, y2, z1, z2);
+        double sin = Math.sin(Math.acos(v1.findCosOfAngleBetweenVectors(v2)));
+        return sin * v1.findLengthOfVector() * v2.findLengthOfVector();
     }
 
     public double findSumOfVectors(Vector v2) { //найти сумму векторов
